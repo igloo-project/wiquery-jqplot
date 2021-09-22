@@ -10,7 +10,7 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>wqplot</artifactId>
 	<packaging>jar</packaging>
-	<version>7.1.0.owsi2-SNAPSHOT</version>
+	<version>7.1.1.owsi2</version>
 	<name>WQPlot</name>
 	<description>Wicket/WiQuery-JqPlot binding</description>
 
