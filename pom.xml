@@ -5,7 +5,7 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>wqplot</artifactId>
 	<packaging>jar</packaging>
-	<version>7.1.1.owsi2</version>
+	<version>7.2.0.owsi2-SNAPSHOT</version>
 	<name>WQPlot</name>
 	<description>Wicket/WiQuery-JqPlot binding</description>
 
@@ -31,7 +31,7 @@
 		<url>git@github.com:apidae-tourisme/wiquery-jqplot.git</url>
 		<connection>scm:git:git@github.com:apidae-tourisme/wiquery-jqplot.git</connection>
 		<developerConnection>scm:git:https://github.com/apidae-tourisme/wiquery-jqplot.git</developerConnection>
-	  <tag>7.1.1.owsi2</tag>
+	  <tag>HEAD</tag>
   </scm>
 
 	<developers>
