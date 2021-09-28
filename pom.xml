@@ -30,7 +30,7 @@
 	<scm>
 		<url>git@github.com:apidae-tourisme/wiquery-jqplot.git</url>
 		<connection>scm:git:git@github.com:apidae-tourisme/wiquery-jqplot.git</connection>
-		<developerConnection>scm:git:git@github.com:apidae-tourisme/wiquery-jqplot.git</developerConnection>
+		<developerConnection>scm:git:https://github.com/apidae-tourisme/wiquery-jqplot.git</developerConnection>
 	</scm>
 
 	<developers>

@@ -7,10 +7,10 @@ name: Release, deploy and create next iteration
 on:
   workflow_dispatch:
     inputs:
-      releaseVersion:
+      release_version:
         description: "Release number version to create"
         required: true
-      nextVersion:
+      next_version:
         description: "SNAPSHOT number of the next development version"
         required: true
 
@@ -51,7 +51,7 @@ jobs:
       - name: prepare
         run: mvn --batch-mode -Dtag=${{ github.event.inputs.release_version }} release:prepare -DreleaseVersion=${{ github.event.inputs.release_version }} -DdevelopmentVersion=${{ github.event.inputs.next_version }}
       - name: perform
-        run: mvn --batch-mode release:perform
+        run: mvn --batch-mode release:perform -Darguments="-Dmaven.javadoc.skip=true"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
