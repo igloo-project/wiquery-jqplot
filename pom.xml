@@ -126,6 +126,13 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<extensions>
+				<extension>
+						<groupId>com.gkatzioura.maven.cloud</groupId>
+						<artifactId>s3-storage-wagon</artifactId>
+						<version>2.3</version>
+				</extension>
+		</extensions>
 		<resources>
 			<resource>
 				<filtering>false</filtering>
@@ -214,12 +221,15 @@
 			</plugin>
 		</plugins>
 	</build>
-	
+
 	<distributionManagement>
-		<repository>
-			<id>github</id>
-			<name>github OWSI Core</name>
-			<url>https://maven.pkg.github.com/apidae-tourisme/wiquery-jqplot</url>
-		</repository>
+	    <snapshotRepository>
+	        <id>snapshot-bucket</id>
+	        <url>s3://apidae-sit-packages/snapshot</url>
+	    </snapshotRepository>
+	    <repository>
+	        <id>release-bucket</id>
+	        <url>s3://apidae-sit-packages/release</url>
+	    </repository>
 	</distributionManagement>
 </project>
