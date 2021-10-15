@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>7</version>
-	</parent>
 
 	<groupId>nl.topicus</groupId>
 	<artifactId>wqplot</artifactId>
 	<packaging>jar</packaging>
-	<version>7.1.0.owsi2-SNAPSHOT</version>
+	<version>7.2.0.owsi2-SNAPSHOT</version>
 	<name>WQPlot</name>
 	<description>Wicket/WiQuery-JqPlot binding</description>
 
@@ -33,11 +28,12 @@
 
 	<url>https://github.com/openwide-java/wiquery-jqplot/openwide-release</url>
 	<scm>
-		<url>git@github.com:openwide-java/wiquery-jqplot.git</url>
-		<connection>scm:git:git@github.com:openwide-java/wiquery-jqplot.git</connection>
-		<developerConnection>scm:git:git@github.com:openwide-java/wiquery-jqplot.git</developerConnection>
-	</scm>
-	
+		<url>git@github.com:apidae-tourisme/wiquery-jqplot.git</url>
+		<connection>scm:git:git@github.com:apidae-tourisme/wiquery-jqplot.git</connection>
+		<developerConnection>scm:git:https://github.com/apidae-tourisme/wiquery-jqplot.git</developerConnection>
+	  <tag>HEAD</tag>
+  </scm>
+
 	<developers>
 		<developer>
 			<id>hielkehoeve</id>
@@ -130,6 +126,13 @@
 		</dependency>
 	</dependencies>
 	<build>
+		<extensions>
+				<extension>
+						<groupId>com.gkatzioura.maven.cloud</groupId>
+						<artifactId>s3-storage-wagon</artifactId>
+						<version>2.3</version>
+				</extension>
+		</extensions>
 		<resources>
 			<resource>
 				<filtering>false</filtering>
@@ -220,15 +223,13 @@
 	</build>
 
 	<distributionManagement>
-		<repository>
-			<id>nexus-owsi-core</id>
-			<name>Nexus OWSI Core</name>
-			<url>https://projects.openwide.fr/services/nexus/content/repositories/owsi-core</url>
-		</repository>
-		<snapshotRepository>
-			<id>nexus-owsi-core-snapshots</id>
-			<name>Nexus OWSI Core Snapshots</name>
-			<url>https://projects.openwide.fr/services/nexus/content/repositories/owsi-core-snapshots</url>
-		</snapshotRepository>
+	    <snapshotRepository>
+	        <id>snapshot-bucket</id>
+	        <url>s3://apidae-sit-packages/snapshot</url>
+	    </snapshotRepository>
+	    <repository>
+	        <id>release-bucket</id>
+	        <url>s3://apidae-sit-packages/release</url>
+	    </repository>
 	</distributionManagement>
 </project>
