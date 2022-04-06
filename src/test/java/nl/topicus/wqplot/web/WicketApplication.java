@@ -2,9 +2,10 @@ package nl.topicus.wqplot.web;
 
 import nl.topicus.wqplot.web.pages.HomePage;
 
+import java.time.Duration;
+
 import org.apache.wicket.Application;
 import org.apache.wicket.protocol.http.WebApplication;
-import org.apache.wicket.util.time.Duration;
 
 /**
  * Application object for your web application. If you want to run this application
@@ -27,7 +28,7 @@ public class WicketApplication extends WebApplication
 		getMarkupSettings().setStripWicketTags(true);
 		//getSharedResources().putClassAlias(Application.class, "application");
 		
-		getResourceSettings().setResourcePollFrequency(Duration.ONE_SECOND);
+		getResourceSettings().setResourcePollFrequency(Duration.ofSeconds(1));
 
 		getRequestLoggerSettings().setRequestLoggerEnabled(true);
 		getRequestLoggerSettings().setRequestsWindowSize(200);

@@ -10,15 +10,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.wicket.core.request.ClientInfo;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.IHeaderResponse;
 import org.apache.wicket.markup.head.JavaScriptHeaderItem;
 import org.apache.wicket.markup.head.OnDomReadyHeaderItem;
 import org.apache.wicket.markup.html.WebMarkupContainer;
 import org.apache.wicket.model.IModel;
-import org.apache.wicket.protocol.http.WebSession;
-import org.apache.wicket.protocol.http.request.WebClientInfo;
 import org.wicketstuff.wiquery.core.javascript.JsStatement;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -81,20 +78,23 @@ public class JQPlot extends WebMarkupContainer implements IPluginResolver
 	@Override
 	public void renderHead(IHeaderResponse headerResponse)
 	{
-		ClientInfo info = WebSession.get().getClientInfo();
-
-		if (info instanceof WebClientInfo)
-		{
-			/**
-			 * only IE 9 supports canvas natively.
-			 */
-			WebClientInfo webinfo = (WebClientInfo) info;
-			if (webinfo.getProperties().isBrowserInternetExplorer()
-				&& webinfo.getProperties().getBrowserVersionMajor() < 9)
-				// wiQueryResourceManager.addJavaScriptResource(JQPlotExcanvasJavaScriptResourceReference.get());
-				headerResponse.render(JavaScriptHeaderItem
-					.forReference(JQPlotExcanvasJavaScriptResourceReference.get()));
-		}
+		/**
+		 * HACK KOBALT : We do not support IE 9 anymore
+		 */
+//		ClientInfo info = WebSession.get().getClientInfo();
+//
+//		if (info instanceof WebClientInfo)
+//		{
+//			/**
+//			 * only IE 9 supports canvas natively.
+//			 */
+//			WebClientInfo webinfo = (WebClientInfo) info;
+//			if (webinfo.getProperties().isBrowserInternetExplorer()
+//				&& webinfo.getProperties().getBrowserVersionMajor() < 9)
+//				// wiQueryResourceManager.addJavaScriptResource(JQPlotExcanvasJavaScriptResourceReference.get());
+//				headerResponse.render(JavaScriptHeaderItem
+//					.forReference(JQPlotExcanvasJavaScriptResourceReference.get()));
+//		}
 
 		// wiQueryResourceManager.addJavaScriptResource(JQPlotJavaScriptResourceReference.get());
 		// wiQueryResourceManager.addCssResource(JQPlotStyleSheetResourceReference.get());
@@ -248,4 +248,5 @@ public class JQPlot extends WebMarkupContainer implements IPluginResolver
 
 		return jsStatement;
 	}
+
 }
