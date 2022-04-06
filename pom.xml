@@ -10,7 +10,7 @@
 	<groupId>nl.topicus</groupId>
 	<artifactId>wqplot</artifactId>
 	<packaging>jar</packaging>
-	<version>9.7.0-ko-SNAPSHOT</version>
+	<version>9.7.0-ko</version>
 	<name>WQPlot</name>
 	<description>Wicket/WiQuery-JqPlot binding</description>
 
@@ -34,7 +34,7 @@
 	<scm>
 		<developerConnection>scm:git:git@github.com:igloo-project/igloo-parent.git</developerConnection>
 		<url>https://github.com/igloo-project/igloo-parent</url>
-		<tag>HEAD</tag>
+		<tag>9.7.0-ko</tag>
 	</scm>
 
 	<developers>
